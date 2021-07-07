@@ -4,7 +4,7 @@ const exchangeSchema = mongoose.Schema({
   uid:String,
   type: String,
   category:String,
-  value:String,
+  value:Number,
   date:String,
   descrpiton:String
   

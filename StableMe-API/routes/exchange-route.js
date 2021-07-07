@@ -28,6 +28,10 @@ router.post('/saveexchange',async(req,res)=>{
     const data=await exchange.create(req.body);
     res.send(data)
 })
+router.get('/allincome/:type',async(req,res)=>{
+    const data=await exchange.findById(req.params);
+    res.send(data)
+})
 
 //------------------------------------------------------------------------->
 
