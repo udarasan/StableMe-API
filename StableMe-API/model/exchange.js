@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 
 const exchangeSchema = mongoose.Schema({
-  eid: String,
+  uid:String,
   type: String,
-  value:double,
-  date:String
+  category:String,
+  value:String,
+  date:String,
+  descrpiton:String
+  
 });
 
 module.exports = mongoose.model("exchanges", exchangeSchema);
