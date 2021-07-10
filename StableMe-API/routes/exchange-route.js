@@ -8,10 +8,10 @@ router.get('/', async (req,res)=>{
     res.send(exchanges);
 })
 
-router.get('/oneexchange/:amount',async (req,res)=>{
+router.get('/oneexchange/:uid',async (req,res)=>{
     //const id="60dc0e0020aa31f976c5b4c2";
     //const foundUser = await User.findOne ({ "email" : req.body.email });
-    const exchanges = await exchange.findOne(req.params);
+    const exchanges = await exchange.find(req.params);
     res.send(exchanges);
     
 })
