@@ -33,6 +33,32 @@ router.get('/allincome/:type',async(req,res)=>{
     res.send(data)
 })
 
+router.get("/incexpenses/:uid", async (req, res) => {
+  const expenses = await exchange.aggregate([
+    { $match: { type: "Expence" , uid: req.params.uid} },
+    {
+      "$group": {
+        "_id": "$uid",
+        "total": { $sum: "$value" }
+      }
+    }
+  ]);
+   
+  res.send(expenses);
+});
+router.get("/exexpenses/:uid", async (req, res) => {
+  const expenses = await exchange.aggregate([
+    { $match: { type: "Income" , uid: req.params.uid} },
+    {
+      "$group": {
+        "_id": "$uid",
+        "total": { $sum: "$value" }
+      }
+    }
+  ]);
+   
+  res.send(expenses);
+});
 //------------------------------------------------------------------------->
 
 module.exports=router

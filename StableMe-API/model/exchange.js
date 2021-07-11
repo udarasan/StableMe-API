@@ -6,7 +6,8 @@ const exchangeSchema = mongoose.Schema({
   category:String,
   value:Number,
   date:String,
-  descrpiton:String
+  descrpiton:String,
+  total:Number
   
 });
 
